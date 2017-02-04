@@ -1,0 +1,21 @@
+body {
+  font-family: Arial;
+}
+
+.heading {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.smallHeading {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 18px;
+}
+
+.listitem {
+  margin-bottom: 5px;
+}
