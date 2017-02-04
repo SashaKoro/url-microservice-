@@ -46,10 +46,20 @@ describe('GET /new/url', (req, res) => {
 });
 
 describe('GET /id:', (req, res) => {
-  it('should return correct data from id parameter', (done) => {
+  it('should fetch correct data from id parameter', (done) => {
     request(app)
-      .get(`/${dummyData._id}`)
-      .expect(200)
+      .get(`/${dummyData[0]._id}`)
+      .expect((res) => {
+        expect(res.body.originalurl).toBe(dummyData.originalurl)
+      })
+      .end(done);
+  });
+  it('should inform user if id could not be found', (done) => {
+    request(app)
+      .get('/12345')
+      .expect((res) => {
+        expect(res.body.notice).toBe('There is no url in the database for that ID');
+      })
       .end(done);
   });
 });
