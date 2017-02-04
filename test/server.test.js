@@ -5,13 +5,13 @@ const { ObjectID } = require('mongodb');
 const { app } = require('./../server');
 const { UrlData } = require('./../models/url');
 
+const port = process.env.PORT;
+
 const dummyData = [{
   _id: new ObjectID(),
   originalurl: 'https://www.nba.com',
-  shorturl: `http://localhost:2000/${this._id}`,
+  shorturl: `${port}${this._id}`,
 }];
-
-console.log(dummyData[0]._id);
 
 beforeEach((done) => {
   UrlData.remove({}).then(() => {

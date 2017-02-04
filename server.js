@@ -1,13 +1,15 @@
+require('./serverConfig/config');
+
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
 const { mongoose } = require('./database/mongooseData');
 const { UrlData } = require('./models/url');
-const port = process.env.PORT || 2000;
+const port = process.env.PORT;
 
 const app = express();
-let hostUrl = 'http://localhost:2000';
+let hostUrl = port;
 const urlRegex = /https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/;
 
 app.use(bodyParser.json());
