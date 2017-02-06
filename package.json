@@ -7,6 +7,9 @@
     "start": "node server/server.js",
     "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha server/**/*.test.js"
   },
+  "engines": {
+    "node": "6.9.1"
+  },
   "author": "Sasha Korotkov",
   "license": "MIT",
   "dependencies": {
