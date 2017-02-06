@@ -2,8 +2,8 @@ const expect = require('expect');
 const request = require('supertest');
 const { ObjectID } = require('mongodb');
 
-const { app } = require('./../server');
-const { UrlData } = require('./../models/url');
+const { app } = require('../server');
+const { UrlData } = require('../models/url');
 
 const port = process.env.PORT;
 

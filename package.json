@@ -4,8 +4,8 @@
   "description": "URL shortener microservice",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha test/*.test.js"
+    "start": "node server/server.js",
+    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha server/**/*.test.js"
   },
   "author": "Sasha Korotkov",
   "license": "MIT",

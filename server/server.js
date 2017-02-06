@@ -13,7 +13,7 @@ const app = express();
 const urlRegex = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
 
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static('server/public'));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/main.html'));
