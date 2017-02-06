@@ -9,8 +9,8 @@ const { UrlData } = require('./models/url');
 const port = process.env.PORT;
 
 const app = express();
-let hostUrl = port;
-const urlRegex = /https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/;
+
+const urlRegex = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -21,9 +21,16 @@ app.get('/', (req, res) => {
 
 app.get('/new/*', (req, res) => {
   let url = req.params[0];
+  let hostUrl;
   if (!urlRegex.test(url)) {
     return res.send({ notice: 'You did not enter a valid url' });
   };
+
+  if (port === '2000') {
+    hostUrl = `http://localhost:${port}`;
+  } else {
+    hostUrl = 'https://url-microservice75.herokuapp.com';
+  }
 
   let urlData = new UrlData({
     originalurl: req.params[0],
